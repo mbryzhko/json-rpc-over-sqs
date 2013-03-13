@@ -131,7 +131,7 @@ public class SimpleMessageTest {
 	}
 
 	private void givenWeHaveSqsClient() throws IOException {
-		InputStream properties = SimpleMessageTest.class.getResourceAsStream("/aws.properties");
+		InputStream properties = SimpleMessageTest.class.getResourceAsStream("/aws_my.properties");
 		sqsClient = new AmazonSQSClient(new PropertiesCredentials(properties));
 		sqsClient.setEndpoint("sqs.eu-west-1.amazonaws.com");
 	}

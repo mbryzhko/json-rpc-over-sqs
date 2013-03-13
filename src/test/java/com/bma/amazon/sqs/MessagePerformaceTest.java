@@ -176,7 +176,8 @@ public class MessagePerformaceTest {
 			if (receive) {
 				System.out.println("Start Receiving");
 				List<Message> messages = null;
-				while (!(messages = sqsClient.receiveMessage(new ReceiveMessageRequest().withQueueUrl(queueUrl)).getMessages()).isEmpty()) {
+				ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest().withQueueUrl(queueUrl).withWaitTimeSeconds(20);
+				while (!(messages = sqsClient.receiveMessage(receiveRequest).getMessages()).isEmpty()) {
 					if (!messages.isEmpty()) {
 						for (Message message : messages) {
 							registerReceivedMessage(message);
